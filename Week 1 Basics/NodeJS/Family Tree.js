@@ -10,10 +10,11 @@ function createPerson(name, parents) {
 }
 
 const PeopleToCreate = [
-    ['Zofia'],
-    ['Krysztof'],
-    ['Artur', ['Zofia']],
-    ['Monika', ['Krysztof']],
+    ['Sam'],
+    ['Sussan'],
+    ['John'],
+    ['Artur', ['Sussan']],
+    ['Monika', ['John', 'Sam']],
     ['Dawid', ['Artur', 'Monika']]
 ]
 
