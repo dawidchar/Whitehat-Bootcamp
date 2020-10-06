@@ -1,0 +1,14 @@
+{
+  "name": "week1basics",
+  "version": "1.0.0",
+  "description": "Whitehat Bootcamp",
+  "main": "Family Tree.js",
+  "scripts": {
+    "test": "jest --watchAll"
+  },
+  "author": "Dawid Charzewski",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^26.5.2"
+  }
+}
