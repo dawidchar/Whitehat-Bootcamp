@@ -5,10 +5,10 @@ class Bag {
     }
 }
 
-class Passenger {
-    constructor (name, bags) {
+class Person {
+    constructor (name,meta) {
         this.name = name
-        this.bags = (bags) ? [bags] : []
+        this.bags = (meta) ? (meta.bags) ? (meta.bags.length > 1) ? meta.bags : [meta.bags] : [] : []
     }
 
     addBag(bag) {
@@ -22,10 +22,22 @@ class Passenger {
     }
 }
 
+class Passenger extends Person {
+    
+}
+
+class CrewMember extends Person {
+    constructor (name,meta) {
+        super(name,meta)
+        this.position = (meta) ? (meta.position) ? meta.position : "" : ""
+    }
+}
+
 class Plane {
     constructor (destination){
         this.dest = destination
         this.passengers = []
+        this.crew = []
     }
 
     changeDestination(newDest){
@@ -33,7 +45,19 @@ class Plane {
     }
 
     board(passengers){
-        this.passengers.push(passengers)
+        const globalThis = this
+        function pushPerson (curPerson){
+            if(curPerson instanceof CrewMember){
+                globalThis.crew.push(curPerson)
+            }else if (curPerson instanceof Passenger){
+                globalThis.passengers.push(curPerson)
+            }
+        }
+        if(passengers.length){
+            passengers.forEach(pushPerson);
+        }else{
+            pushPerson(passengers)
+        }
     }
 }
 
@@ -58,13 +82,9 @@ class Airport {
         this.planes.push(plane)
     }
 
-    
+
 }
 
 
 
-
-
-
-
-module.exports = {Bag, Passenger, Plane, Airport}
+module.exports = {Bag, Passenger, Plane, Airport,CrewMember}
