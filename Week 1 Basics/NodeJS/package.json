@@ -4,7 +4,7 @@
   "description": "Whitehat Bootcamp",
   "main": "Family Tree.js",
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest --watch"
   },
   "author": "Dawid Charzewski",
   "license": "ISC",
