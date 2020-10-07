@@ -77,7 +77,7 @@ describe('Airport Tests', () => {
         newPlane.board(newPassenger)
 
         airports.LHR.addPlane(newPlane)
-        airports.LHR.takeoff(newPlane, airports[newPlane.dest])
+        airports.LHR.takeoff(newPlane)
 
         newPlane.changeDestination("BRS")
 

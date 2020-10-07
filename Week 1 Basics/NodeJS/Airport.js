@@ -62,11 +62,14 @@ class Plane {
 }
 
 class Airport {
+    static List = {}
     constructor (name) {
         this.name = name
         this.planes = []
         this.passengers = []
+        this.constructor.List[name]= this
     }
+
 
     addPlane(plane){
         this.planes.push(plane)
@@ -75,7 +78,7 @@ class Airport {
     takeoff(plane,destination){
         const index = this.planes.indexOf(plane)
         this.planes.splice(index, 1)
-        destination.land(plane)
+        this.constructor.List[plane.dest].land(plane)
     }
 
     land(plane){
