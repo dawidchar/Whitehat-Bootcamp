@@ -108,8 +108,22 @@ describe('Person Inheritance', () => {
         expect(newPlane.crew[0].position).toBe('Captain')
         expect(newPlane.passengers[0].name).toBe('Sam')
         
-        console.log("-".repeat(20))
-        console.log(newPlane)
-        console.log("-".repeat(20))
+        // console.log("-".repeat(20))
+        // console.log(newPlane)
+        // console.log("-".repeat(20))
+    })
+})
+
+describe('Airport Async Info Tests', () => {
+     test('Read, find and return airport data/info from the JSON file', () => {
+        const airportList = ['JFK', 'BRS', 'LHR']
+        const airports = {}
+        airportList.forEach(airport => {
+            airports[airport] = new am.Airport(airport)
+        });
+        const JFKpromise = airports.JFK.getInfo().then((airportData) => expect(airportData.city).toEqual('New York'))
+        const BRSpromise = airports.BRS.getInfo().then((airportData) => expect(airportData.city).toEqual('Bristol'))
+        const LHRpromise = airports.LHR.getInfo().then((airportData) => expect(airportData.city).toEqual('London'))
+        return Promise.all([JFKpromise,BRSpromise,LHRpromise])
     })
 })
