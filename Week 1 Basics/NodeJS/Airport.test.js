@@ -123,7 +123,9 @@ describe('Airport Async Info Tests', () => {
         });
         const JFKpromise = airports.JFK.getInfo().then((airportData) => expect(airportData.city).toEqual('New York'))
         const BRSpromise = airports.BRS.getInfo().then((airportData) => expect(airportData.city).toEqual('Bristol'))
-        const LHRpromise = airports.LHR.getInfo().then((airportData) => expect(airportData.city).toEqual('London'))
+        const LHRpromise = airports.LHR.getInfo()
+        LHRpromise.then((airportData) => expect(airportData.city).toEqual('London'))
+        LHRpromise.then(data => console.log(data))
         return Promise.all([JFKpromise,BRSpromise,LHRpromise])
     })
 })

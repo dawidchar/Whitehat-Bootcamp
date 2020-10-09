@@ -4,7 +4,7 @@
   "description": "Whitehat Bootcamp",
   "main": "Family Tree.js",
   "scripts": {
-    "test": "jest --watch Airport",
+    "test": "jest --watch scooter",
     "test:report": "jest --coverage=true Airport",
     "prepublish": "babel src -d lib"
   },
@@ -20,7 +20,13 @@
   },
   "babel": {
     "presets": [
-      "@babel/preset-env",
+      [
+        "@babel/preset-env", {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
       "@babel/preset-react"
     ],
     "plugins": [
