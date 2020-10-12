@@ -1,0 +1,46 @@
+@startuml Restaurant
+left to right direction
+class Restaurant {
+    id String
+    name String
+    image String
+    menus Array<Menu>
+    bookings Array <Booking>
+    ---
+    addMenu (<Menu>)
+    DeleteMenu (<Menu>)
+    addBooking (<Booking>)
+    DeleteBooking (<Booking>)
+}
+
+class Menu {
+    id String
+    name String
+    menu Array<Item>
+    ---
+    addItem (<Item>)
+    DeleteItem (<Item>)
+}
+
+class Booking {
+    id String
+    restaurant String
+    firstName String
+    lastName String
+    time TimeStamp
+    date Date
+}
+
+class Item {
+    id String
+    title String
+    price String
+    description String
+    image String
+}
+
+Restaurant --{ Menu
+Restaurant --{ Booking
+Menu --{ Item
+
+@enduml
