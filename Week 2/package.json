@@ -1,0 +1,35 @@
+{
+  "name": "week2bootcamp",
+  "version": "1.0.0",
+  "description": "Whitehat Bootcamp",
+  "scripts": {
+    "test": "jest --watchAll",
+    "test:report": "jest --coverage=true",
+    "prepublish": "babel src -d lib"
+  },
+  "author": "Dawid Charzewski",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.11.6",
+    "@babel/core": "^7.11.6",
+    "@babel/plugin-syntax-class-properties": "^7.10.4",
+    "@babel/preset-env": "^7.11.5",
+    "@babel/preset-react": "^7.10.4",
+    "jest": "^26.5.2"
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env", {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-proposal-class-properties"
+    ]
+  }
+}
