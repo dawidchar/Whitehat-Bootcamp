@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Whitehat Bootcamp",
   "scripts": {
-    "test": "jest --watchAll",
+    "test": "jest --watch",
     "test:report": "jest --coverage=true",
     "prepublish": "babel src -d lib"
   },
@@ -20,7 +20,8 @@
   "babel": {
     "presets": [
       [
-        "@babel/preset-env", {
+        "@babel/preset-env",
+        {
           "targets": {
             "node": "current"
           }
@@ -31,5 +32,8 @@
     "plugins": [
       "@babel/plugin-proposal-class-properties"
     ]
+  },
+  "dependencies": {
+    "sqlite3": "^5.0.0"
   }
 }
