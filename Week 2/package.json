@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Whitehat Bootcamp",
   "scripts": {
-    "test": "jest --watch",
+    "test": "jest --watch sequelize",
     "test:report": "jest --coverage=true",
     "prepublish": "babel src -d lib"
   },
@@ -34,6 +34,7 @@
     ]
   },
   "dependencies": {
+    "sequelize": "^6.3.5",
     "sqlite3": "^5.0.0"
   }
 }
