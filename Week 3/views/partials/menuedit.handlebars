@@ -1,0 +1,36 @@
+<div class="modal fade" id="menuedit" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="menuedittitle">Editing </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="menueditform" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="rst-name" class="col-form-label">Title:</label>
+                        <input name="title" type="text" class="form-control" id="menu-title">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#menuedit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var menuid = button.data('id')
+        var menuname = button.data('title')
+        var modal = $(this)
+        modal.find('#menu-title').val(menuname)
+        modal.find('#menuedittitle').html(`Editing ${menuname}`)
+        $('#menueditform').attr('action', `/rst/{{rst.id}}/menu/${menuid}/edit`);
+    })
+</script>

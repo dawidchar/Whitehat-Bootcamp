@@ -1,5 +1,5 @@
 const { Sequelize, Model, DataTypes } = require('sequelize')
-const sequelize = new Sequelize('sqlite::memory:', null, null, { dialect: 'sqlite', logging: false })
+const sequelize = new Sequelize({dialect: 'sqlite', storage: './server/data.db', logging: false})
 
 class Restaurant extends Model { }
 class Menu extends Model { }

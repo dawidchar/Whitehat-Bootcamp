@@ -1,0 +1,48 @@
+<div class="modal fade" id="itemedit" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="edititemtitle">Edit </h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form id="itemeditform" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="col-form-label">Item Name:</label>
+                        <input name="name" type="text" class="form-control" id="item-name">
+                    </div>
+                    <div class="form-group">
+                        <label class="col-form-label">Item Price:</label>
+                        <input name="price" type="number" class="form-control" id="item-price">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="itemeditdeletebutton" type="button" class="btn btn-danger mr-auto"
+                        data-dismiss="modal">Delete</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update Item</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#itemedit').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget)
+        var itemid = button.data('id')
+        var itemname = button.data('name')
+        var itemprice = button.data('price')
+        var menuid = button.data('menuid')
+        var modal = $(this)
+        modal.find('#item-name').val(itemname)
+        modal.find('#item-price').val(itemprice)
+        modal.find('#edititemtitle').html(`Editing ${itemname}`)
+        modal.find('#itemeditdeletebutton').click(function () {
+            location.href = `/rst/{{rst.id}}/menu/${menuid}/item/${itemid}/delete`;
+        })
+        $('#itemeditform').attr('action', `/rst/{{rst.id}}/menu/${menuid}/item/${itemid}/edit`);
+    })
+</script>

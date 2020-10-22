@@ -1,0 +1,37 @@
+<div class="modal fade" id="editmodal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Editing {{rst.name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="/rst/{{rst.id}}/edit" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="rst-name" class="col-form-label">Name:</label>
+                        <input name="name" type="text" class="form-control" id="rst-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="rst-image" class="col-form-label">Image URL:</label>
+                        <input name="image" type="text" class="form-control" id="rst-image">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#editmodal').on('show.bs.modal', function (event) {
+        console.log("WORKIGN")
+        var modal = $(this)
+        modal.find('#rst-name').val("{{rst.name}}")
+        modal.find('#rst-image').val("{{rst.image}}")
+    })
+</script>

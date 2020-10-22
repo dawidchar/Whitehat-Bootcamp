@@ -6,7 +6,7 @@
   "scripts": {
     "buildcss": "node-sass sass/main.scss public/main.css",
     "css": "nodemon --exec npm run buildcss --watch sass --ext scss",
-    "start": "nodemon server.js"
+    "watch": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
