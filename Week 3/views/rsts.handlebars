@@ -4,8 +4,8 @@
         <div class="row justify-content-around px-3">
             {{#each restaurants}}
             <a href="/rst/{{this.id}}">
-            <div class="card px-4 pt-4 m-1 my-4 rounded-lg shadow rstcards " style="max-width: 24rem;">
-                <img src="{{this.image}}" class="card-img-top" style="height:16rem;">
+            <div class="card px-4 pt-4 m-1 my-4 rounded-lg shadow entCard hoverCard " style="max-width: 24rem;">
+                <img src="{{this.image}}" class="card-img-top rounded-lg" style="height:16rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{this.name}}</h5>
                     <div class="d-flex flex-row justify-content-around">
@@ -20,33 +20,3 @@
         </div>
     </div>
 </section>
-
-<script>
-
-     function animateCard(scale, duration, elasticity,el) {
-        anime.remove(el);
-        anime({
-            targets: el,
-            scale: scale,
-            duration: duration,
-            elasticity: elasticity
-        });
-    }
-
-    function enterAni(el) { animateCard(1.1, 800, 400,el) };
-    function leaveAni(el) { animateCard(1.0, 600, 300,el) };
-    
-    document.querySelectorAll('.card').forEach(el => { 
-        el.style.transform = 'scale(0.1)'; 
-        el.style.opacity = 0; 
-        el.addEventListener('mouseenter', function(){enterAni(el)}, false);
-        el.addEventListener('mouseleave', function(){leaveAni(el)}, false);
-        })
-    anime({
-        targets: '.card',
-        scale: 1,
-        opacity: 1,
-        delay: anime.stagger(100, { easing: 'easeInQuad' })
-    });
-
-</script>
